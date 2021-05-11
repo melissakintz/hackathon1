@@ -9,8 +9,10 @@ class PhotoManager
     public function getAll($roover)
     {
         $client = HttpClient::create();
+
         $response = $client->request('GET', "https://api.nasa.gov/mars-photos/api/v1/rovers/{$roover}/photos?" .
         "sol=1000&camera=navcam&api_key=MEnxfxyUQdWOMtv0UTo0dNAwyisOQpHeXQBAcKXF");
+
 
         //$statusCode = $response->getStatusCode();
         // $statusCode = 200
