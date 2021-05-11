@@ -27,13 +27,4 @@ class HomeController extends AbstractController
         $allStock = $stockManager->getAll();
         return $this->twig->render('Home/index.html.twig', ['allStock' => $allStock]);
     }
-
-
-    public function buy(int $id)
-    {
-
-        $stockManager = new StockManager();
-        $updStock = $stockManager->buy($id);
-        header('Location: /home/index');
-    }
 }
