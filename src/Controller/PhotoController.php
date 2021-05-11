@@ -13,7 +13,11 @@ class PhotoController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $roover = $_POST;
             $pictures = $photoManager->getExtremlyFull($roover);
-            return $this->twig->render('Photo/index.html.twig', ['pictures' => $pictures]);
+            $roverImages = $photoManager->getRoverImages($roover);
+            return $this->twig->render(
+                'Photo/index.html.twig',
+                ['pictures' => $pictures, 'roverImages' => $roverImages]
+            );
         }
         $pictures = $photoManager->getAll();
         return $this->twig->render('Photo/index.html.twig', ['pictures' => $pictures]);
