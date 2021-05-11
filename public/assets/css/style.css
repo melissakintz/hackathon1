@@ -14,3 +14,7 @@
         flex-wrap: wrap;
     }
 }
+
+body{
+    background-image: linear-gradient(rgba(50, 50, 50, 0.8), rgba(55, 55, 55, 0.8)), url("/assets/images/bg.svg");
+}
