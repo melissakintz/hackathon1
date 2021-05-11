@@ -1,38 +1,16 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: sylvain
- * Date: 07/03/18
- * Time: 18:20
- * PHP version 7
- */
-
 namespace App\Model;
-
-/**
- *
- */
-
 
 use Symfony\Component\HttpClient\HttpClient;
 
-class StockManager extends AbstractManager
+class RoverManager
 {
-    public const TABLE = 'stock';
-
-    /**
-     *  Initializes this class.
-     */
-    public function __construct()
-    {
-        parent::__construct(self::TABLE);
-    }
-
-    public function getAll()
+    public function getAllRover()
     {
         $client = HttpClient::create();
-        $response = $client->request('GET', 'https://geo.api.gouv.fr/communes/67365');
+        $response = $client->request('GET', 'https://api.nasa.gov/mars-photos/api/v1/manifests/curiosity?' .
+            'api_key=MEnxfxyUQdWOMtv0UTo0dNAwyisOQpHeXQBAcKXF');
 
         //$statusCode = $response->getStatusCode();
         // $statusCode = 200
