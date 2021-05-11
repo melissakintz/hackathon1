@@ -1,10 +1,31 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+   {% for rover in rovers %}   
+
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+    <h3 class="uk-card-title">{{rover.name}} - {{rover.status}}</h3>
+    {% if name == 'curiosity' %}
+    <img src="{{roverImages.collection.items.36.links.0.href}}">
+    {% elseif name == 'spirit' %}
+    <img src="{{roverImages.collection.items.16.links.0.href}}">
+    {% elseif name == 'opportunity' %}
+    <img src="{{roverImages.collection.items.18.links.0.href}}">
+    {% endif %}
+
+    <p>Lancé à la date de {{rover.launch_date}}, {{rover.name}} a atteint mars le {{rover.landing_date}}. </p><br>
+    <p>Cela fait {{rover.max_sol}} jour qu'il roule sur mars, pour un total de {{rover.total_photos}} photos prises. </p>
+    </div>
+
+    {% endfor %}
+
+{% for rover in roverImages.collection.items|slice(0,20) %}
+<img src="{{rover.links.0.href}}">
+{% endfor %}
 <form method="POST">
 <input type="number" id="sol" name="sol"
        min="0" max="1000">
-       <select name="roover">
+       <select type="hidden" name="roover">
     <option value="Curiosity">Curiosity</option>
     <option value="Opportunity">Opportunity</option>
     <option value="Spirit">Spirit</option>
@@ -31,7 +52,7 @@
     </div><br>
     <!-- affiche toutes les images -->
 
-    {% for pic in picture %}
+    {% for pic in picture|slice(0,20) %}
 
      
     <div class="uk-card uk-card-default uk-card-body uk-width-1-3@m uk-align-center">
