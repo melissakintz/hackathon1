@@ -6,11 +6,11 @@ use Symfony\Component\HttpClient\HttpClient;
 
 class RoverManager
 {
-    public function getAllRover()
+    public function getAllRover($roover)
     {
         $client = HttpClient::create();
-        $response = $client->request('GET', 'https://api.nasa.gov/mars-photos/api/v1/manifests/curiosity?' .
-            'api_key=MEnxfxyUQdWOMtv0UTo0dNAwyisOQpHeXQBAcKXF');
+        $response = $client->request('GET', "https://api.nasa.gov/mars-photos/api/v1/manifests/{$roover}?" .
+            "api_key=MEnxfxyUQdWOMtv0UTo0dNAwyisOQpHeXQBAcKXF");
 
         //$statusCode = $response->getStatusCode();
         // $statusCode = 200

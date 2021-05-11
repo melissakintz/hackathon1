@@ -6,11 +6,11 @@ use Symfony\Component\HttpClient\HttpClient;
 
 class PhotoManager
 {
-    public function getAll()
+    public function getAll($roover)
     {
         $client = HttpClient::create();
-        $response = $client->request('GET', 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?
-        sol=1000&camera=navcam&api_key=MEnxfxyUQdWOMtv0UTo0dNAwyisOQpHeXQBAcKXF');
+        $response = $client->request('GET', "https://api.nasa.gov/mars-photos/api/v1/rovers/{$roover}/photos?" .
+        "sol=1000&camera=navcam&api_key=MEnxfxyUQdWOMtv0UTo0dNAwyisOQpHeXQBAcKXF");
 
         //$statusCode = $response->getStatusCode();
         // $statusCode = 200
@@ -95,7 +95,7 @@ class PhotoManager
     {
         $client = HttpClient::create();
         $response = $client->request('GET', "https://images-api.nasa.gov/search?q=rover&media_type=image" .
-            "&description={$roover['roover']}&title={$roover['roover']}");
+            "&description={$roover}&title={$roover}");
 
         // $statusCode = $response->getStatusCode();
         // $statusCode = 200
