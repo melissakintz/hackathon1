@@ -11,7 +11,7 @@ class PhotoManager
         $client = HttpClient::create();
 
         $response = $client->request('GET', "https://api.nasa.gov/mars-photos/api/v1/rovers/{$roover}/photos?" .
-        "sol=1000&camera=navcam&api_key=MEnxfxyUQdWOMtv0UTo0dNAwyisOQpHeXQBAcKXF");
+            "sol=1000&camera=navcam&api_key=MEnxfxyUQdWOMtv0UTo0dNAwyisOQpHeXQBAcKXF");
 
 
         //$statusCode = $response->getStatusCode();
@@ -76,10 +76,10 @@ class PhotoManager
         return $content;
     }
 
-    public function getExtremlyFull(array $data)
+    public function getExtremlyFull(array $data, string $name)
     {
         $client = HttpClient::create();
-        $response = $client->request('GET', "https://api.nasa.gov/mars-photos/api/v1/rovers/{$data['roover']}/photos?" .
+        $response = $client->request('GET', "https://api.nasa.gov/mars-photos/api/v1/rovers/{$name}/photos?" .
             "sol={$data['sol']}&camera={$data['cam']}&api_key=MEnxfxyUQdWOMtv0UTo0dNAwyisOQpHeXQBAcKXF");
 
         //$statusCode = $response->getStatusCode();
