@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+{#    {{ dump(allStock) }}#}
+    {% for picture in pictures %}
+    {% for pic in picture %}
+    <img class="fit-picture"
+     src="{{pic.img_src}}"
+     alt="">
+    {% endfor %}
+    {% endfor %}
+{% endblock %}
