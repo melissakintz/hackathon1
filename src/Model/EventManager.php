@@ -1,22 +1,24 @@
 <?php
 
-
 namespace App\Model;
-
 
 use Symfony\Component\HttpClient\HttpClient;
 
-class WeatherManager
+class EventManager
 {
 
     public function getWeather()
     {
         $client = HttpClient::create();
-        $response = $client->request('GET', 'https://api.nasa.gov/insight_weather/?api_key=LOECrvPRpcrxyo8RE3BLSiQ5kPl4FKUOcD7h0T7U&feedtype=json&ver=1.0');
+        $response = $client->request(
+            'GET',
+            'https://api.nasa.gov/insight_weather/?api_key=' .
+            'LOECrvPRpcrxyo8RE3BLSiQ5kPl4FKUOcD7h0T7U'
+        );
 
-        $statusCode = $response->getStatusCode();
+        //$statusCode = $response->getStatusCode();
         // $statusCode = 200
-        $contentType = $response->getHeaders()['content-type'][0];
+        //$contentType = $response->getHeaders()['content-type'][0];
         // $contentType = 'application/json'
         $content = $response->getContent();
         // $content = '{"id":521583, "name":"symfony-docs", ...}'
@@ -31,11 +33,15 @@ class WeatherManager
     public function geomagneticStorm()
     {
         $client = HttpClient::create();
-        $response = $client->request('GET', 'https://api.nasa.gov/DONKI/GST?startDate=2016-01-01&endDate=2016-01-30&api_key=LOECrvPRpcrxyo8RE3BLSiQ5kPl4FKUOcD7h0T7U');
+        $response = $client->request(
+            'GET',
+            'https://api.nasa.gov/DONKI/GST?startDate=2016-01-01&endDate=2016-01-30&api_key=' .
+            'LOECrvPRpcrxyo8RE3BLSiQ5kPl4FKUOcD7h0T7U'
+        );
 
-        $statusCode = $response->getStatusCode();
+        //$statusCode = $response->getStatusCode();
         // $statusCode = 200
-        $contentType = $response->getHeaders()['content-type'][0];
+        //$contentType = $response->getHeaders()['content-type'][0];
         // $contentType = 'application/json'
         $content = $response->getContent();
         // $content = '{"id":521583, "name":"symfony-docs", ...}'
@@ -50,11 +56,15 @@ class WeatherManager
     public function planetShocks()
     {
         $client = HttpClient::create();
-        $response = $client->request('GET', 'https://api.nasa.gov/DONKI/IPS?startDate=2016-01-01&endDate=2016-01-30&api_key=LOECrvPRpcrxyo8RE3BLSiQ5kPl4FKUOcD7h0T7U');
+        $response = $client->request(
+            'GET',
+            'https://api.nasa.gov/DONKI/IPS?startDate=2016-01-01&endDate=2016-01-30&api_key=' .
+            'LOECrvPRpcrxyo8RE3BLSiQ5kPl4FKUOcD7h0T7U'
+        );
 
-        $statusCode = $response->getStatusCode();
+        //$statusCode = $response->getStatusCode();
         // $statusCode = 200
-        $contentType = $response->getHeaders()['content-type'][0];
+        //$contentType = $response->getHeaders()['content-type'][0];
         // $contentType = 'application/json'
         $content = $response->getContent();
         // $content = '{"id":521583, "name":"symfony-docs", ...}'
@@ -69,11 +79,15 @@ class WeatherManager
     public function solarFlare()
     {
         $client = HttpClient::create();
-        $response = $client->request('GET', 'https://api.nasa.gov/DONKI/FLR?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key=LOECrvPRpcrxyo8RE3BLSiQ5kPl4FKUOcD7h0T7U');
+        $response = $client->request(
+            'GET',
+            'https://api.nasa.gov/DONKI/FLR?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key=' .
+            'LOECrvPRpcrxyo8RE3BLSiQ5kPl4FKUOcD7h0T7U'
+        );
 
-        $statusCode = $response->getStatusCode();
+        //$statusCode = $response->getStatusCode();
         // $statusCode = 200
-        $contentType = $response->getHeaders()['content-type'][0];
+        //$contentType = $response->getHeaders()['content-type'][0];
         // $contentType = 'application/json'
         $content = $response->getContent();
         // $content = '{"id":521583, "name":"symfony-docs", ...}'

@@ -10,7 +10,7 @@
 namespace App\Controller;
 
 use App\Model\StockManager;
-use App\Model\WeatherManager;
+use App\Model\EventManager;
 
 class HomeController extends AbstractController
 {

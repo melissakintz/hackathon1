@@ -7,17 +7,17 @@
         <h1>Evènements</h1>
         <div class="uk-background-muted" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
             <div class="uk-background-muted" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
-            <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small">
-                <h4 class="uk-card-title">Tempetes géomagnétiques</h4>
-                {% for geo in storm %}
-                    <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded">
-                        <p><strong>Début de l'évènement :</strong> {{ geo.startTime}}</p>
-                        {% for g in geo.allKpIndex %}
-                            <p><strong>Intensité (Kp) : </strong>{{ g.kpIndex }}</p>
-                        {% endfor %}
-                    </div>
-                {% endfor %}
-            </div>
+                <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small">
+                    <h4 class="uk-card-title">Tempetes géomagnétiques</h4>
+                    {% for geo in storm %}
+                        <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded">
+                            <p><strong>Début de l'évènement :</strong> {{ geo.startTime}}</p>
+                            {% for g in geo.allKpIndex %}
+                                <p><strong>Intensité (Kp) : </strong>{{ g.kpIndex }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
 
             <div class="uk-background-muted" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
@@ -43,7 +43,6 @@
                     {% endfor %}
                 </div>
             </div>
-
         </div>
     </div>
 {% endblock %}
