@@ -3,28 +3,28 @@
 {% block content %}
     <div class="uk-padding-large">
 
-    <form method="POST" class="uk-form-width-small">
-        <input class ="uk-number uk-form-small" type="number" id="sol" name="sol"
+    <form method="POST" class="uk-form-width-small uk-flex-inline uk-padding-small">
+        <input class ="uk-number uk-form-small uk-width-auto" type="number" id="sol" name="sol"
                min="0" max="1000">
 
-        <select class="uk-select uk-form-small" name="roover">
+        <select class="uk-select uk-form-small uk-width-auto" name="roover">
             <option value="Curiosity">Curiosity</option>
             <option value="Opportunity">Opportunity</option>
             <option value="Spirit">Spirit</option>
         </select>
 
-        <select class="uk-select uk-form-small" name="cam">
+        <select class="uk-select uk-form-small uk-width-auto" name="cam">
             <option value="navcam">Nav Camera</option>
             <option value="fhaz">Front Camera</option>
             <option value="rhaz">Back Camera</option>
         </select>
 
-        <input class="uk-input" type="submit" value="chercher">
+        <input class="uk-input uk-form-small uk-width-auto" type="submit" value="chercher">
     </form>
 
         {% for picture in pictures %}
         <!-- affiche une image au hasard -->
-        <div class=" uk-grid-match uk-card uk-card-small uk-grid-medium" uk-grid>
+        <div class=" uk-grid-match  uk-grid-match" uk-grid>
             <div class="uk-card uk-card-default uk-card-body uk-width-1-3@m">
                 <h3 class="uk-card-title">Picture of {{picture.0.rover.name}}</h3>
                 <img class="uk-card-media" src="{{picture[random(picture|length -1)]['img_src']}}" width="300" height="300" alt="">
@@ -34,22 +34,22 @@
                 <h3 class="uk-card-title">Picture of {{picture.0.rover.name}}</h3>
                 <img class="uk-card-media" src="{{picture[random(picture|length -1)]['img_src']}}" width="300" height="300" alt="">
                 <p>Picture took with the {{picture.0.camera.full_name}} at {{picture.0.earth_date}}</p>
-            </div><br>
+            </div>
         </div>
             <hr>
         <!-- affiche toutes les images -->
 
         {% for pic in picture %}
-            <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
-                <div class="uk-card uk-card-default uk-card-body ">
+            <div class="uk-child-width-1-3@m uk-grid-match" uk-grid>
+                <div class="uk-card uk-card-default uk-card-body">
                     <h3 class="uk-card-title">Picture of {{pic.rover.name}}</h3>
                     <img class="uk-card-media" src="{{pic.img_src}}" width="300" height="300" alt="">
                     <p>Picture took with the {{pic.camera.full_name}} at {{pic.earth_date}}</p>
                 </div>
             </div>
     
-    {% endfor %}
-    {% endfor %}
+        {% endfor %}
+        {% endfor %}
     </div>
     
 {% endblock %}
