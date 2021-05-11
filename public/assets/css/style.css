@@ -1,16 +1,16 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-a {
+.sky a {
     width: 100px;
     height: 100px;
 }
-@media screen and (max-width: 450px){
-    form{
+
+@media screen and (max-width: 450px) {
+    form {
         flex-wrap: wrap;
     }
 }
