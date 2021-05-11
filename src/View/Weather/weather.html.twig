@@ -1,15 +1,11 @@
 {% extends 'layout.html.twig' %}
 
-{% block stylesheet %}
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/css/uikit.min.css" />
-{% endblock %}
 
 {% block content %}
     {#  <iframe src='https://mars.nasa.gov/layout/embed/image/insightweather/' width='800' height='530'  scrolling='no' frameborder='0'></iframe>#}
-    <div class="uk-padding-large uk-background-muted">
         <h1>Evènements</h1>
-        <div class="container">
+    <div class="uk-padding-large uk-background-muted" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
+    <div class="container">
             <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small">
                 <h4 class="uk-card-title">Tempetes géomagnétiques</h4>
                 {% for geo in storm %}
@@ -21,8 +17,10 @@
                     </div>
                 {% endfor %}
             </div>
+        </div>
+        <div class="uk-padding-large uk-background-muted" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
 
-            <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small">
+        <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small">
                 <h4 class="uk-card-title">Chocs inter-planetaires</h4>
                 {% for shock in shocks %}
                     <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded">
@@ -31,8 +29,10 @@
                     </div>
                 {% endfor %}
             </div>
+        </div>
+        <div class="uk-padding-large uk-background-muted" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
 
-            <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small">
+        <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small">
                 <h4 class="uk-card-title">Eruptions solaires</h4>
                 {% for flare in solarFlare %}
                     <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded">
