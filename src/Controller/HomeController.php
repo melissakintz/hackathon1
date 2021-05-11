@@ -10,6 +10,7 @@
 namespace App\Controller;
 
 use App\Model\StockManager;
+use App\Model\WeatherManager;
 
 class HomeController extends AbstractController
 {
@@ -23,9 +24,7 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        $stockManager = new StockManager();
-        $allStock = $stockManager->getAll();
-        return $this->twig->render('Home/index.html.twig', ['allStock' => $allStock]);
+        return $this->twig->render('Home/index.html.twig');
     }
 
 

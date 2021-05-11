@@ -12,6 +12,6 @@ class PhotoController extends AbstractController
     {
         $stockManager = new PhotoManager();
         $pictures = $stockManager->getAll();
-        return $this->twig->render('Photo/index.html.twig', ['pictures' => $pictures]);;
+        return $this->twig->render('Photo/index.html.twig', ['pictures' => $pictures]);
     }
 }
