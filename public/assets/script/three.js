@@ -120,24 +120,24 @@ function init() {
     // ----------------------------------------------- A href
     // satellite 1
     const link1 = document.createElement( 'a' );
-    link1.href = 'https://fr.wikipedia.org/wiki/Mars_(plan%C3%A8te)';
-    link1.textContent = 'MarsWIKI';
+    link1.href = "/Photo/all/curiosity";
+    link1.textContent = 'Curiosity';
     const sat1Link = new CSS2DObject( link1 );
  
     satelite1.add( sat1Link );
 
     // satellite 2
     const link2 = document.createElement( 'a' );
-    link2.href = 'https://fr.wikipedia.org/wiki/Mars_(plan%C3%A8te)';
-    link2.textContent = 'SATELLITE';
+    link2.href = '/Photo/all/opportunity';
+    link2.textContent = 'Opportunity';
     const sat2Link = new CSS2DObject( link2 );
  
     satelite2.add( sat2Link );
 
     // satellite 3
     const link3 = document.createElement( 'a' );
-    link3.href = 'https://fr.wikipedia.org/wiki/Mars_(plan%C3%A8te)';
-    link3.textContent = 'Rover';
+    link3.href = '/Photo/all/spirit';
+    link3.textContent = 'Spirit';
     const sat3Link = new CSS2DObject( link3 );
  
     satelite3.add( sat3Link );
