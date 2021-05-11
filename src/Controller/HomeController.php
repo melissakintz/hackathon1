@@ -10,6 +10,7 @@
 namespace App\Controller;
 
 use App\Model\StockManager;
+use App\Model\EventManager;
 
 class HomeController extends AbstractController
 {
@@ -23,17 +24,6 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        $stockManager = new StockManager();
-        $allStock = $stockManager->getAll();
-        return $this->twig->render('Home/index.html.twig', ['allStock' => $allStock]);
-    }
-
-
-    public function buy(int $id)
-    {
-
-        $stockManager = new StockManager();
-        $updStock = $stockManager->buy($id);
-        header('Location: /home/index');
+        return $this->twig->render('Home/index.html.twig');
     }
 }

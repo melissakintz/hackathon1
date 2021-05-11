@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+
+   {% for rover in rovers %}   
+
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+    <h3 class="uk-card-title">{{rover.name}} - {{rover.status}}</h3>
+    <p>Lancé à la date de {{rover.launch_date}}, {{rover.name}} a atteint mars le {{rover.landing_date}}. </p><br>
+    <p>Cela fait {{rover.max_sol}} jour qu'il roule sur mars, pour un total de {{rover.total_photos}} photos prises. </p>
+    </div>
+    
+    {% endfor %}
+
+{% endblock %}

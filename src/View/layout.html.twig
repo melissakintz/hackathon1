@@ -8,15 +8,29 @@
     <title>{% block title %}{% endblock %}</title>
 
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/css/uikit.min.css" />
+
     {% block stylesheet %}{% endblock %}
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/css/uikit.min.css" />
     <link rel="icon" href="/assets/images/favicon.png">
 </head>
 
 <body>
+<a href="/Home/index" uk-icon="icon: arrow-right; ratio: 2" class="uk-icon-link uk-align-right">Accueil</a>
 
 {% block content %}{% endblock %}
+
 {% block javascript %}{% endblock %}
+
+<div class="uk-flex uk-flex-right uk-margin-medium-right">
+        <a href="" uk-totop uk-scroll data-uk-smooth-scroll width="40" height="40"></a>
+ </div>
+
 <script src="assets/script/three.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/js/uikit-icons.min.js"></script>
+
 </body>
 </html>
 
