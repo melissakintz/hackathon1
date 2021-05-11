@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <div class="uk-padding-large uk-background-muted">
+    <div class="uk-padding-large uk-light ">
 
         <h1 class="uk-text-center uk-padding-remove-bottom">Présentation du rover</h1>
         {% for rover in rovers %}
@@ -70,8 +70,8 @@
         <h1 class="uk-text-center"> Pas de photos dommage!</h1>
         {% else %}
             <!-- affiche une image au hasard -->
-            <div class=" uk-grid-match  uk-grid-match uk-flex-center" uk-grid>
-                <div class="uk-card uk-card-default uk-card-body uk-width-1-3@m">
+            <div class=" uk-grid-match  uk-grid-match uk-flex-center " uk-grid>
+                <div class="uk-card uk-card-default uk-card-body uk-width-1-3@m ">
                     <h3 class="uk-card-title">Picture of {{picture.0.rover.name}}</h3>
                     <img class="uk-card-media" src="{{picture[random(picture|length -1)]['img_src']}}" width="300" height="300" alt="">
                     <p>Picture took with the {{picture.0.camera.full_name}} at {{picture.0.earth_date}}</p>
