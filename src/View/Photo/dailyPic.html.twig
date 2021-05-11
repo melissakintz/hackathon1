@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="uk-align-center uk-padding-large uk-background-secondary" uk-grid>
+    <div class="uk-text-center">
+        <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+            <img src="{{ picture.url }}" alt="{{ picture.title }}" >
+            <div class="uk-position-center">
+                <div class="uk-transition-slide-top-small"><h4 class="uk-margin-remove">{{ picture.title }}</h4></div>
+                <div class="uk-transition-slide-bottom-small"><h4 class="uk-margin-remove">{{ picture.date }}</h4></div>
+                <div class="uk-transition-slide-bottom-small"><p class="uk-text-light uk-padding-small">{{ picture.explanation }}</p></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

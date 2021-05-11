@@ -1,0 +1,46 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block content %}
+    {#  <iframe src='https://mars.nasa.gov/layout/embed/image/insightweather/' width='800' height='530'  scrolling='no' frameborder='0'></iframe>#}
+        <h1>Evènements</h1>
+    <div class="uk-padding-large uk-background-muted" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
+    <div class="container">
+            <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small">
+                <h4 class="uk-card-title">Tempetes géomagnétiques</h4>
+                {% for geo in storm %}
+                    <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded">
+                        <p><strong>Début de l'évènement :</strong> {{ geo.startTime}}</p>
+                        {% for g in geo.allKpIndex %}
+                            <p><strong>Intensité (Kp) : </strong>{{ g.kpIndex }}</p>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="uk-padding-large uk-background-muted" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
+
+        <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small">
+                <h4 class="uk-card-title">Chocs inter-planetaires</h4>
+                {% for shock in shocks %}
+                    <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded">
+                        <p><strong>Date de l'évènement :</strong> {{ shock.eventTime}}</p>
+                        <p><strong>Localisation : </strong> {{ shock.location }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="uk-padding-large uk-background-muted" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
+
+        <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small">
+                <h4 class="uk-card-title">Eruptions solaires</h4>
+                {% for flare in solarFlare %}
+                    <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded">
+                        <p><strong>Date de début : </strong>{{ flare.beginTime}}</p>
+                        <p><strong>Date de fin :</strong> {% if flare.endTime is not null %} {{ flare.endTime }} {% else %} pas de données {% endif %}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
