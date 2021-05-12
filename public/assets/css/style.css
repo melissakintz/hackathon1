@@ -37,6 +37,12 @@
     width: 100%;
 }
 
+.logo{
+    width: 70px;
+    float: right;
+    margin-top: 10px;
+}
+
 .index li {
     font-family: var(--orbiton-font);
     color: #ffff;
