@@ -7,12 +7,12 @@
         <a href="/" uk-icon="icon: arrow-left; ratio: 2" class="uk-icon-link uk-align-left">Accueil</a>
 
         <h1>Evènements</h1>
-        <div class=" uk-grid-match  uk-grid-match uk-flex-center " uk-grid>
+        <div class=" uk-grid-match  uk-grid-match uk-flex-center" uk-grid>
             <div  uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
                 <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small">
                     <h4 class="uk-card-title">Tempetes géomagnétiques</h4>
                     {% for geo in storm %}
-                        <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded">
+                        <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded uk-margin">
                             <p><strong>Début de l'évènement :</strong> {{ geo.startTime}}</p>
                             {% for g in geo.allKpIndex %}
                                 <p><strong>Intensité (Kp) : </strong>{{ g.kpIndex }}</p>
@@ -27,7 +27,7 @@
                     <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small">
                         <h4 class="uk-card-title">Chocs inter-planetaires</h4>
                         {% for shock in shocks %}
-                            <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded">
+                            <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded uk-margin">
                                 <p><strong>Date de l'évènement :</strong> {{ shock.eventTime}}</p>
                                 <p><strong>Localisation : </strong> {{ shock.location }}</p>
                             </div>
@@ -36,11 +36,12 @@
                 </div>
             </div>
 
+            <div>
             <div  uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
                 <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small">
                     <h4 class="uk-card-title">Eruptions solaires</h4>
                     {% for flare in solarFlare %}
-                        <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded">
+                        <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded uk-margin">
                             <p><strong>Date de début : </strong>{{ flare.beginTime}}</p>
                             <p><strong>Date de fin :</strong> {% if flare.endTime is not null %} {{ flare.endTime }} {% else %} pas de données {% endif %}</p>
                         </div>
@@ -48,6 +49,8 @@
                 </div>
             </div>
         </div>
+        </div>
+
         <div class="uk-flex uk-flex-right uk-margin-medium-right">
             <a href="" uk-totop uk-scroll data-uk-smooth-scroll width="40" height="40"></a>
         </div>
