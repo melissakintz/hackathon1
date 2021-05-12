@@ -90,7 +90,7 @@
                 <!-- affiche toutes les images -->
                 <div class="uk-child-width-1-4@m uk-child-width-1-5@xl uk-child-width-1-2@s uk-grid-match" uk-grid uk-height-match="target: > div > .uk-card">
                     {% for pic in picture|slice(0,30) %}
-                        <div class="uk-align-center">
+                        <div class="uk-align-center" style="margin-top:30px;">
                             <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
                                 <h3 class="uk-card-title">Picture of {{pic.rover.name}}</h3>
                                 <div uk-lightbox="animation: slide">
