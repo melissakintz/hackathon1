@@ -14,19 +14,46 @@
     font-size: 14px;
 }
 
-.index h1 {
-    position: relative;
-    padding: 10px;
-    font-family: var(--orbiton-font);
-    font-size: 3rem;
-    color: var(--orangeD);
-    opacity: .8;
-}
-
 .index {
     position: absolute;
     height: 100vh;
     width: 100vw;
+}
+
+.index .header {
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    width: 70vw;
+}
+
+.index h1 {
+    position: relative;
+    padding: 10px;
+    font-family: var(--orbiton-font);
+    opacity: .8;
+}
+
+.index h1:after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    right: -50%;
+    width: 50%;
+    height: 4px;
+    background-color: #F64109;
+}
+
+.index h1 span {
+    font-size: 3rem;
+}
+
+.index h1 #marsTitle {
+    color: #ffff;
+}
+
+.index h1 #discoTitle {
+    color: #1155e7;
 }
 
 .index .right-column {
@@ -97,10 +124,38 @@
     width: 100%;
 }
 
+
+/* CANVAS */
+
+.sky .label {
+    height: 50px;
+}
+
 .sky a {
     width: 100px;
     height: 100px;
+    color: var(--orangeL);
+    font-family: var(--orbiton-font);
+    position: absolute;
+    top: -90px;
+    transition: all .2s ease;
 }
+
+.sky a:hover {
+    color: var(--orangeD);
+    transform: scale(1.2);
+}
+
+.sky .label.rover {
+    height: 0px;
+}
+
+.sky .rover a {
+    top: 0px;
+}
+
+
+/* OTHER */
 
 iframe {
     width: 100vw;
@@ -115,6 +170,9 @@ body {
         flex-wrap: wrap;
     }
 }
+
+
+/* ------------------------------------------------------ ASTRONAUTE MAIN ------------------------------------------------------*/
 
 .backg {
     position: absolute;
