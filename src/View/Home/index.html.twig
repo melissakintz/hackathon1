@@ -1,13 +1,21 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-{#
-    <a class="uk-button" href="/Photo/all/curiosity">Photos</a><br/>
-    <a class="uk-button" href="/Photo/all/opportunity">Photos</a><br/>
-    <a class="uk-button" href="/Photo/all/spirit">Photos</a><br/>
-    <a class="uk-button" href="/Daily/getDailyPic">Daily photo</a><br/>
-    <a class="uk-button" href="/Event/index">Evènements astonomiques</a>
-#}
+        <div class="index">
+            <div class="infos">
+                <ul>
+                    <li>size : 6792km</li>
+                    <li>From sun : 78-378 millions Km</li>
+                    <li>From earth : 150 millions km</li>
+                    <li>Temperature : -63°C</li>
+                    <li>Orbital période : 687 days</li>
+                </ul>
+            </div>
+
+            <div class="size">
+                <img src="assets/images/size.png" alt="planets size">
+            </div>
+        </div>
 {% endblock %}
 
 {% block javascript %}<script src="assets/script/three.js" type="module"></script>{% endblock %}
