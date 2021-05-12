@@ -5,16 +5,18 @@
     <a href="/" uk-icon="icon: arrow-left; ratio: 2" class="uk-icon-link uk-align-left">Accueil</a>
     <img src="/assets/images/logo.png" alt="logo" class="logo">
 
+
     <iframe src='https://mars.nasa.gov/layout/embed/image/insightweather/' width='800' height='530'  scrolling='no' frameborder='0'></iframe>
     <div class="uk-padding-large uk-light">
 
+
         <h1>Evènements</h1>
-        <div class=" uk-grid-match  uk-grid-match uk-flex-center uk-border-rounded" uk-grid>
-            <div  uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
-                <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-border-rounded">
-                    <h4 class="uk-card-title">Tempetes géomagnétiques</h4>
+        <div class="uk-grid-match uk-flex-center uk-border-rounded " uk-grid>
+            <div uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
+                <div class="uk-card  uk-card-default uk-card-body uk-width-auto uk-card-small uk-border-rounded" style="background-color: #FF873FFF">
+                    <h4 class="uk-card-title" style="color: #686565">Tempetes géomagnétiques</h4>
                     {% for geo in storm %}
-                        <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded uk-margin">
+                        <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded uk-margin" style="background-color: #FFB285FF">
                             <p><strong>Début de l'évènement :</strong> {{ geo.startTime}}</p>
                             {% for g in geo.allKpIndex %}
                                 <p><strong>Intensité (Kp) : </strong>{{ g.kpIndex }}</p>
@@ -26,10 +28,10 @@
 
             <div>
                 <div  uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
-                    <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-border-rounded">
-                        <h4 class="uk-card-title">Chocs inter-planetaires</h4>
+                    <div class="uk-margin-small-left uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-border-rounded" style="background-color: #FF873FFF">
+                        <h4 class="uk-card-title" style="color: #686565">Chocs inter-planetaires</h4>
                         {% for shock in shocks %}
-                            <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded uk-margin">
+                            <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded uk-margin" style="background-color: #FFB285FF">
                                 <p><strong>Date de l'évènement :</strong> {{ shock.eventTime}}</p>
                                 <p><strong>Localisation : </strong> {{ shock.location }}</p>
                             </div>
@@ -40,10 +42,10 @@
 
             <div>
                 <div  uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
-                    <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-border-rounded">
-                        <h4 class="uk-card-title">Eruptions solaires</h4>
+                    <div class="uk-margin-small-left uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-border-rounded" style="background-color: #FF873FFF">
+                        <h4 class="uk-card-title" style="color: #686565">Eruptions solaires</h4>
                         {% for flare in solarFlare %}
-                            <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded uk-margin">
+                            <div class="uk-card uk-card-default uk-card-body uk-width-auto uk-card-small uk-card-hover uk-background-muted uk-border-rounded uk-margin" style="background-color: #FFB285FF">
                                 <p><strong>Date de début : </strong>{{ flare.beginTime}}</p>
                                 <p><strong>Date de fin :</strong> {% if flare.endTime is not null %} {{ flare.endTime }} {% else %} pas de données {% endif %}</p>
                             </div>
