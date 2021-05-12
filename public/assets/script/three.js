@@ -157,7 +157,7 @@ function init() {
     // satellite 4
     const link5 = document.createElement( 'a' );
     link5.href = '/Event/index';
-    link5.textContent = 'Event';
+    link5.textContent = 'Astrological events';
     const sat4Link = new CSS2DObject( link5 );
  
     satelite4.add( sat4Link );
@@ -165,7 +165,7 @@ function init() {
     // rover 1
     const link4 = document.createElement( 'a' );
     link4.href = "/Daily/getDailyPic";
-    link4.textContent = 'Daily';
+    link4.textContent = 'Daily Picture';
     const rov1Link = new CSS2DObject( link4 );
  
     rover1.add( rov1Link );
