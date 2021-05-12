@@ -266,3 +266,6 @@ function animate() {
     labelRenderer.render( scene, camera );
 
 }
+
+let path = document.querySelector('path');
+console.log(path.getTotalLength());
