@@ -3,7 +3,7 @@
 {% block title %}Accueil{% endblock %}
 {% block content %}
 
-<div class="backg">
+    <div class="backg">
 		<p class="infobulle">Bonjour explorateur! Découvre Mars en cliquant sur les satellites/rover!</p>
 		<div class="stars">
 			<div class="s1"></div>
@@ -64,12 +64,18 @@
 				</div>
 			</div>
 		</div>
+    </div>
 
-        <div class="index">
+    <div class="index">
             
-            <h1>
-                Mars Discovery
-            </h1>
+            <div class="header">
+                <div>
+                    <img src="/assets/images/logo.png" alt="logo" class="logo">
+                </div> 
+                
+                <h1>Mars Discovery</h1>
+            </div>  
+            
             
             <div class="size">
                 <img src="assets/images/size.png" alt="planets size">
@@ -263,8 +269,6 @@
                     <li>Orbital période : 687 days</li>
                 </ul>
             </div>
-
-            <img src="/assets/images/logo.png" alt="logo" class="logo">
 
         </div>
 {% endblock %}
