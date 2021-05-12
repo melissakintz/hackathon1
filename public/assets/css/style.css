@@ -1,6 +1,9 @@
 :root {
     --orbiton-font: 'Orbitron';
     --normal-font: 'Rajdhani';
+    --orangeD: #FF873FFF;
+    --orangeL: #FFB285FF;
+    --blue: rgb(102, 250, 211);
 }
 
 * {
@@ -11,30 +14,62 @@
     font-size: 14px;
 }
 
+.index h1 {
+    position: relative;
+    padding: 10px;
+    font-family: var(--orbiton-font);
+    font-size: 3rem;
+    color: var(--orangeD);
+    opacity: .8;
+}
+
 .index {
     position: absolute;
     height: 100vh;
     width: 100vw;
 }
 
-.index ul {
+.index .right-column {
     position: absolute;
-    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 100vh;
     right: 5%;
-    padding: 0;
-}
-
-.index .infos {
-    display: inline-block;
+    bottom: 0%;
     padding: 10px;
 }
 
-.index .size {
-    width: 500px;
+.right-column .signes {
+    text-align: end;
 }
 
-.index .size img {
-    width: 100%;
+.right-column .signes img {
+    width: 40%;
+}
+
+.right-column .team {
+    display: flex;
+    justify-content: space-between;
+}
+
+@keyframes anim {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.right-column .astroname {
+    font-size: .7rem;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    margin: 10px auto;
+}
+
+.index ul {
+    padding: 0;
+    margin: 0;
 }
 
 .index li {
@@ -45,19 +80,27 @@
     padding: 5px;
 }
 
+.index .size {
+    position: absolute;
+    width: 500px;
+    bottom: 10px;
+    left: 5%;
+}
+
+.index .size img {
+    width: 100%;
+}
+
 .sky a {
     width: 100px;
     height: 100px;
 }
 
-
-
 iframe {
     width: 100vw;
-    opacity: 1;
 }
 
-body{
+body {
     background-image: linear-gradient(rgba(50, 50, 50, 0.8), rgba(55, 55, 55, 0.8)), url("/assets/images/bg.svg");
 }
 
