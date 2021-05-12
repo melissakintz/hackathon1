@@ -26,7 +26,6 @@ animate();
 function init() {
 
     const MARS_RADIUS = 2;
-    const MOON_RADIUS = .5;
     const SATELLITE_RADIUS = 1;
 
     camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, .1, 200 );
@@ -217,11 +216,11 @@ function init() {
 
     renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio( window.devicePixelRatio );
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize( window.innerWidth, window.innerHeight);
     document.body.appendChild( renderer.domElement );
 
     labelRenderer = new CSS2DRenderer();
-    labelRenderer.setSize( window.innerWidth, window.innerHeight );
+    labelRenderer.setSize( window.innerWidth ,window.innerHeight);
     labelRenderer.domElement.classList.add('sky');
     labelRenderer.domElement.style.position = 'absolute';
     labelRenderer.domElement.style.top = '0px';
@@ -243,7 +242,7 @@ function onWindowResize() {
 
     camera.updateProjectionMatrix();
 
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize( window.innerWidth ,window.innerHeight );
 
     labelRenderer.setSize( window.innerWidth, window.innerHeight );
 

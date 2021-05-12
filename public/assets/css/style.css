@@ -1,7 +1,48 @@
+:root {
+    --orbiton-font: 'Orbitron';
+    --normal-font: 'Rajdhani';
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
+    font-size: 14px;
+}
+
+.index {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+}
+
+.index ul {
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    padding: 0;
+}
+
+.index .infos {
+    display: inline-block;
+    padding: 10px;
+}
+
+.index .size {
+    width: 500px;
+}
+
+.index .size img {
+    width: 100%;
+}
+
+.index li {
+    font-family: var(--orbiton-font);
+    color: #ffff;
+    font-size: .7rem;
+    letter-spacing: .1rem;
+    padding: 5px;
 }
 
 .sky a {
@@ -13,4 +54,9 @@
     form {
         flex-wrap: wrap;
     }
+}
+
+iframe {
+    width: 100vw;
+    opacity: 1;
 }
