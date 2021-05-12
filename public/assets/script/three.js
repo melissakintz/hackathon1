@@ -17,8 +17,7 @@ let satelite3;
 let satelite4;
 let rover1;
 let mars;
-let moon;
-const radius = 63;
+
 
 init();
 animate();
@@ -134,47 +133,34 @@ function init() {
     const link1 = document.createElement( 'a' );
     link1.href = "/Photo/all/curiosity";
     link1.textContent = 'Curiosity';
-    const sat1Link = new CSS2DObject( link1 );
- 
-    satelite1.add( sat1Link );
+
 
     // satellite 2
     const link2 = document.createElement( 'a' );
     link2.href = '/Photo/all/opportunity';
     link2.textContent = 'Opportunity';
-    const sat2Link = new CSS2DObject( link2 );
- 
-    satelite2.add( sat2Link );
 
     // satellite 3
     const link3 = document.createElement( 'a' );
     link3.href = '/Photo/all/spirit';
     link3.textContent = 'Spirit';
-    const sat3Link = new CSS2DObject( link3 );
- 
-    satelite3.add( sat3Link );
 
     // satellite 4
     const link5 = document.createElement( 'a' );
     link5.href = '/Event/index';
     link5.textContent = 'Astrological events';
-    const sat4Link = new CSS2DObject( link5 );
- 
-    satelite4.add( sat4Link );
 
     // rover 1
     const link4 = document.createElement( 'a' );
     link4.href = "/Daily/getDailyPic";
     link4.textContent = 'Daily Picture';
-    const rov1Link = new CSS2DObject( link4 );
- 
-    rover1.add( rov1Link );
+
 
     // -----------------------------------------------DIV
     // satellite 1
     const satellite1Div = document.createElement( 'div' );
     satellite1Div.className = 'label';
-    satellite1Div.style.marginTop = '-1em';
+    satellite1Div.appendChild(link1);
     const sat1Label = new CSS2DObject( satellite1Div );
     sat1Label.position.set( 0, SATELLITE_RADIUS, 0 );
     satelite1.add( sat1Label );
@@ -182,7 +168,7 @@ function init() {
     // satellite 2
     const satellite2Div = document.createElement( 'div' );
     satellite2Div.className = 'label';
-    satellite2Div.style.marginTop = '-1em';
+    satellite2Div.appendChild(link2);
     const sat2Label = new CSS2DObject( satellite2Div );
     sat2Label.position.set( 0, SATELLITE_RADIUS, 0 );
     satelite2.add( sat2Label );
@@ -190,7 +176,7 @@ function init() {
     // satellite 3
     const satellite3Div = document.createElement( 'div' );
     satellite3Div.className = 'label';
-    satellite3Div.style.marginTop = '-1em';
+    satellite3Div.appendChild(link3);
     const sat3Label = new CSS2DObject( satellite3Div );
     sat3Label.position.set( 0, SATELLITE_RADIUS, 0 );
     satelite3.add( sat3Label );
@@ -198,17 +184,16 @@ function init() {
     // satellite 4
     const satellite4Div = document.createElement( 'div' );
     satellite4Div.className = 'label';
-    satellite4Div.style.marginTop = '-1em';
+    satellite4Div.appendChild(link5);
     const sat4Label = new CSS2DObject( satellite4Div );
     sat4Label.position.set( 0, SATELLITE_RADIUS, 0 );
     satelite4.add( sat4Label );
 
     //rover 1
     const rover1Div = document.createElement( 'div' );
-    rover1Div.className = 'label';
-    rover1Div.style.marginTop = '-1em';
+    rover1Div.className = 'label rover';
+    rover1Div.appendChild(link4);
     const rov1Label = new CSS2DObject( rover1Div );
-    rov1Label.position.set( 0, 0, 0 );
     rover1.add( rov1Label );
 
     
@@ -266,6 +251,3 @@ function animate() {
     labelRenderer.render( scene, camera );
 
 }
-
-let path = document.querySelector('path');
-console.log(path.getTotalLength());
