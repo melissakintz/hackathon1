@@ -14,6 +14,8 @@ const textureLoader = new THREE.TextureLoader();
 let satelite1;
 let satelite2;
 let satelite3;
+let satelite4;
+let rover1;
 let mars;
 let moon;
 const radius = 63;
@@ -31,25 +33,12 @@ function init() {
     camera.position.set( 10, 10, 1 );
 
     scene = new THREE.Scene();
+    scene.background = new THREE.TextureLoader().load("assets/images/sky.jpg");
 
     const dirLight = new THREE.DirectionalLight( 0xffffff );
     const light = new THREE.PointLight(0xffffff, 1, 1000);
     dirLight.position.set( 5, 5, 5 );
     scene.add( dirLight, light );
-
-    //MOON 
-
-    const moonGeometry = new THREE.SphereGeometry( MOON_RADIUS, 30, 30 );
-    const moonMaterial = new THREE.MeshPhongMaterial( {
-        specular: 0xe39105,
-        shininess: 5,
-        map: textureLoader.load( 'assets/images/moon_texture.jpeg' ),
-        specularMap: textureLoader.load( 'assets/images/moon_texture.jpeg' ),
-        normalMap: textureLoader.load( 'assets/images/moon_texture.jpeg' ),
-        normalScale: new THREE.Vector2( 0.85, 0.85 )
-    } );
-    moon = new THREE.Mesh( moonGeometry, moonMaterial );
-    scene.add( moon );
 
 
     //MARS
@@ -58,8 +47,8 @@ function init() {
         specular: 0xe39105,
         shininess: 5,
         map: textureLoader.load( 'assets/images/mars_6k.jpg' ),
-        specularMap: textureLoader.load( 'assets/images/mars_texture.jpeg' ),
-        normalMap: textureLoader.load( 'textures/planets/earth_normal_2048.jpg' ),
+        specularMap: textureLoader.load( 'assets/images/mars_6k.jpg' ),
+        normalMap: textureLoader.load( 'assets/images/mars_texture.jpeg' ),
         normalScale: new THREE.Vector2( 0.85, 0.85 )
     } );
     mars = new THREE.Mesh( marsGeometry, marsMaterial );
@@ -68,6 +57,7 @@ function init() {
     
     //SATELLITE
     const sateliteGeometry = new THREE.SphereGeometry( 0, 0, 0 );   
+    const roverGeometry = new THREE.SphereGeometry( 0, 2, 0 ); 
     const sateliteMaterial = new THREE.MeshPhongMaterial( {
         shininess: 0
     } );
@@ -87,6 +77,15 @@ function init() {
     satelite3.scale.multiplyScalar(.1);
     scene.add( satelite3 );
 
+    // satellite 4
+    satelite4 = new THREE.Mesh( sateliteGeometry, sateliteMaterial );
+    satelite4.scale.multiplyScalar(.1);
+    scene.add( satelite4 );
+
+    // rover 1
+    rover1 = new THREE.Mesh( roverGeometry, sateliteMaterial );
+    rover1.scale.multiplyScalar(.009);
+    mars.add( rover1 );
 
     //Satellite Object
 
@@ -113,7 +112,21 @@ function init() {
         
         satelite3.add( object.scene );
     }) 
+
+    // satellite 4
+    gltfLoader.setPath( 'assets/3dObject/satelite/' ).load( 'scene.gltf', function ( object ) {
+        object.scene.scale.multiplyScalar(.9);
+
+        satelite4.add( object.scene );
+    })
     
+    // rover 1
+    gltfLoader.setPath( 'assets/3dObject/mars_rover/' ).load( 'scene.gltf', function ( object ) {
+        object.scene.scale.multiplyScalar(.05);
+
+        rover1.add( object.scene );
+        rover1.position.set(-.5, 2.5, -.5);
+    }) 
     
     /*LINK */
 
@@ -142,6 +155,22 @@ function init() {
  
     satelite3.add( sat3Link );
 
+    // satellite 4
+    const link5 = document.createElement( 'a' );
+    link5.href = '/Event/index';
+    link5.textContent = 'Event';
+    const sat4Link = new CSS2DObject( link5 );
+ 
+    satelite4.add( sat4Link );
+
+    // rover 1
+    const link4 = document.createElement( 'a' );
+    link4.href = "/Daily/getDailyPic";
+    link4.textContent = 'Daily';
+    const rov1Link = new CSS2DObject( link4 );
+ 
+    rover1.add( rov1Link );
+
     // -----------------------------------------------DIV
     // satellite 1
     const satellite1Div = document.createElement( 'div' );
@@ -167,37 +196,23 @@ function init() {
     sat3Label.position.set( 0, SATELLITE_RADIUS, 0 );
     satelite3.add( sat3Label );
 
+    // satellite 4
+    const satellite4Div = document.createElement( 'div' );
+    satellite4Div.className = 'label';
+    satellite4Div.style.marginTop = '-1em';
+    const sat4Label = new CSS2DObject( satellite4Div );
+    sat4Label.position.set( 0, SATELLITE_RADIUS, 0 );
+    satelite4.add( sat4Label );
+
+    //rover 1
+    const rover1Div = document.createElement( 'div' );
+    rover1Div.className = 'label';
+    rover1Div.style.marginTop = '-1em';
+    const rov1Label = new CSS2DObject( rover1Div );
+    rov1Label.position.set( 0, 0, 0 );
+    rover1.add( rov1Label );
 
     
-    // ______________________________________________________STARS
-
-/*
-
-    function stars(){
-        
-        let scene = document.querySelector('.sky');
-        let count = 500;
-        let i = 0;
-        
-        while(i < count){
-            let star = document.createElement("i");
-            let x = Math.floor(Math.random() * window.innerWidth);
-            let y = Math.floor(Math.random() * window.innerHeight);
-            let duration = Math.random() * 10;
-            let size = Math.random() * 2;
-
-            star.style.left = x+'px';
-            star.style.top = y+"px";
-            star.style.width = 1+size+'px';
-            star.style.height = 1+size+'px';
-
-            scene.appendChild(star);
-            i++;
-        }
-    }
-
-    stars();
-*/
     // ------------------------------------------------------ RENDERER
 
     renderer = new THREE.WebGLRenderer();
@@ -212,28 +227,7 @@ function init() {
     labelRenderer.domElement.style.top = '0px';
     document.body.appendChild( labelRenderer.domElement );
 
-       // ______________________________________________________STARS
 
-
-/*
-    function stars(){
-        
-        
-        let count = 300;
-        let i = 0;
-
-        while(i < count){
-            const starI = document.createElement( 'i' );
-            satellite3Div.className = 'star';
-            const starLabel = new CSS2DObject( starI );
-            starLabel.position.set( 0, SATELLITE_RADIUS, 0 );
-            scene.add( starLabel );
-            i++;
-        }
-    }
-
-    stars();
-*/
 
     const controls = new OrbitControls( camera, labelRenderer.domElement );
     controls.minDistance = 5;
@@ -267,7 +261,7 @@ function animate() {
     satelite1.position.set( Math.sin( elapsed/4 ) * 7, 0, Math.cos( elapsed/4 ) * 7 );
     satelite2.position.set( Math.sin( elapsed/-5 ) * 7, 5, Math.cos( elapsed/-5 ) * 7 );
     satelite3.position.set( 2, Math.sin( elapsed/-8 ) * 10,  Math.cos( elapsed/-8 ) * 10 );
-    moon.position.set( 7, Math.sin( elapsed/20 ) * 55,  Math.cos( elapsed/20 ) * 55 );
+    satelite4.position.set(  Math.sin( elapsed/5 ) * 6, 7, Math.cos( elapsed/5 ) * 6 );
 
     renderer.render( scene, camera );
     labelRenderer.render( scene, camera );
