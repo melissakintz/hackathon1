@@ -86,21 +86,24 @@
                 <hr>
 
                 <!-- affiche toutes les images -->
-                <div class="uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-2@s" uk-grid>
+                <div class="uk-child-width-1-4@m uk-child-width-1-5@xl uk-child-width-1-2@s uk-grid-match" uk-grid>
                     {% for pic in picture|slice(0,30) %}
-                        <div class="uk-card uk-card-default uk-card-body uk-margin-small-right uk-align-center ">
-                            <h3 class="uk-card-title">Picture of {{pic.rover.name}}</h3>
-                            <div uk-lightbox="animation: slide">
-                                <a class="uk-inline" href="{{pic.img_src}}" data-caption="Picture took with the {{pic.camera.full_name}} at {{pic.earth_date}}">
-                                <img class="uk-card-media" src="{{pic.img_src}}" width="300" height="300" alt="{{pic.camera.full_name}}">
-                                </a>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body uk-align-center ">
+                                <h3 class="uk-card-title">Picture of {{pic.rover.name}}</h3>
+                                <div uk-lightbox="animation: slide">
+                                    <a class="uk-inline" href="{{pic.img_src}}" data-caption="Picture took with the {{pic.camera.full_name}} at {{pic.earth_date}}">
+                                        <img class="uk-card-media" src="{{pic.img_src}}" width="300" height="300" alt="{{pic.camera.full_name}}">
+                                    </a>
+                                </div>
+                                <p>Picture took with the {{pic.camera.full_name}} at {{pic.earth_date}}</p>
                             </div>
-                            <p>Picture took with the {{pic.camera.full_name}} at {{pic.earth_date}}</p>
                         </div>
                     {% endfor %}
                 </div>
             {% endif %}
         {% endfor %}
+
         <div class="uk-flex uk-flex-right uk-margin-medium-right">
             <a href="" uk-totop uk-scroll data-uk-smooth-scroll width="40" height="40"></a>
         </div>
